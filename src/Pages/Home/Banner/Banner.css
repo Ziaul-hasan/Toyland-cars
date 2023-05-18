@@ -3,6 +3,9 @@
     width: 100%;
     object-fit: cover;
 }
+.line{
+    line-height: 1.5em;
+}
 
 
 @media screen and (max-width: 640px) {

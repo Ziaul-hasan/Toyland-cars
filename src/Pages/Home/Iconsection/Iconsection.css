@@ -1,0 +1,6 @@
+.icon-bg{
+    padding: 30px;
+    background-image: url(/public/geometry2.png);
+    background-color: rgb(233, 255, 233);
+    background-blend-mode: multiply;
+}

@@ -1,0 +1,8 @@
+.aboutSwiper{
+    border-radius: 12px;
+    border: 8px solid #d9ffdb
+}
+.aboutSwiper img{
+    border-radius: 8px;
+    height: 400px;
+}
