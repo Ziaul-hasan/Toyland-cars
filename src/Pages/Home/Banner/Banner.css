@@ -1,0 +1,13 @@
+.mySwiper img{
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 640px) {
+    .mySwiper img{
+        height: 450px;
+        width: 100%;
+    }
+}

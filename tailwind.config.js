@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        secularOne: ['Secular One', 'sans-serif'],
+        sigmar: ['Sigmar', 'cursive'],
+        paytonOne: ['Paytone One', 'sans-serif']
+      }
+    }
   },
    plugins: [require("daisyui")],
 }
