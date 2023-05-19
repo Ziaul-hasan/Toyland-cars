@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
 
@@ -29,11 +30,14 @@ const Login = () => {
                         <input type="password" name='password' placeholder="password" className="input input-bordered" />
                     </div>
                     <div className="form-control my-6">
-                        <input type="submit" value="Login" className="btn border-0 bg-lime-600" />
+                        <input type="submit" value="Login" className="btn border-0 font-secularOne font-medium text-lg bg-lime-600" />
                     </div>
                     <p className='text-base md:text-lg font-secularOne font-medium text-center'>New to Toyland Cars? <Link to='/register' className='text-lime-600'>Register</Link> First</p>
                 </form>
                 <div className="divider my-5">OR</div>
+                <div>
+                    <button className='btn btn-block bg-slate-600 font-secularOne font-medium text-lg'><FaGoogle className='mx-5'></FaGoogle> Signin with Google</button>
+                </div>
             </div>
         </div>
     );
