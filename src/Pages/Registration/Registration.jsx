@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2'
 
@@ -10,7 +10,6 @@ const Registration = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [show, setShow] = useState(false)
-    const [accept, setAccept] = useState(false);
 
     const handleRegistration = event => {
         event.preventDefault()
@@ -56,7 +55,7 @@ const Registration = () => {
                 form.reset();
                 Swal.fire({
                     icon: 'success',
-                    title: 'Yuh!!!',
+                    title: 'Yehh!!!',
                     text: 'Successfully Registered'
                   })
                 
@@ -86,9 +85,10 @@ const Registration = () => {
                         <label className="label font-secularOne">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name='password' placeholder="password" required className="input input-bordered" />
+                        <input type={show ? "text" : "password"} name='password' placeholder="password" required className="input input-bordered" />
                     </div>
-                    <div className="form-control my-3">
+                    <p style={{ cursor: 'pointer', marginTop: '' }} onClick={() => setShow(!show)}> {show ? <span><FaEyeSlash className='ms-auto -mt-12 me-6 text-xl'></FaEyeSlash></span> : <span><FaEye className='ms-auto -mt-12 me-6 text-xl'></FaEye></span>}</p>
+                    <div className="form-control mt-8 mb-4">
                         <label className="label font-secularOne">
                             <span className="label-text">Photo Url</span>
                         </label>
