@@ -44,6 +44,17 @@
         "description": "Western Star 49X is a reliable and versatile pickup truck with a spacious interior, strong towing capacity, and advanced technology."
     },
     {
+        "picture": "https://i.ibb.co/SPRYJg7/international-4900-2002-tow-truck-s01-0001-04-1920x1920.jpg",
+        "name": "Kenworth T370 Tow Truck",
+        "sellerName": "Gerry Smith",
+        "sellerEmail": "Gerry@example.com",
+        "price": 42,
+        "rating": 4.8,
+        "quantity": 5,
+        "subcategory": "Truck",
+        "description": "Kenworth T370 Tow Truck is a reliable and versatile pickup truck with a spacious interior, strong towing capacity, and advanced technology."
+    },
+    {
         "picture": "https://i.ibb.co/BP5kMGk/maxresdefault.jpg",
         "name": "Volvo 9900 Prestige Coach",
         "sellerName": "David Brown",
