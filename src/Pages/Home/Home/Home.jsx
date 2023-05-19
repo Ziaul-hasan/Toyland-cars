@@ -12,6 +12,9 @@ const Home = () => {
             <Iconsection></Iconsection>
             <About></About>
             <TabComponent></TabComponent>
+            <div className='text-center my-10'>
+                <button className='btn bg-lime-500 font-secularOne font-medium md:font-semibold border-0 btn-wide text-xl'>View All Toys</button>
+            </div>
         </div>
     );
 };

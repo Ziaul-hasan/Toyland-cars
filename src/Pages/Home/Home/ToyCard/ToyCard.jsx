@@ -17,12 +17,12 @@ const ToyCard = ({ toy }) => {
                     value={rating}
                     readOnly
                 />
-                <span className='text-base md:text-lg font-medium font-secularOne text-slate-600'>{rating}</span>
+                <span className='text-base md:text-lg font-medium font-secularOne text-red-600'>{rating}</span>
                 
             </div>
             
             <div>
-                <button className='btn btn-block'>View Details</button>
+                <button className='btn btn-block bg-red-600 border-0 font-secularOne'>View Details</button>
             </div>
         </div>
     );
