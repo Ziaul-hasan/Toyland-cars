@@ -64,6 +64,20 @@ const Registration = () => {
                 
             })
     }
+
+    const handleLoginWithGoogle = () =>{
+        const from = location.state?.from?.pathname || '/';
+        googleLogin()
+        .then(result =>{
+            const user = result.user;
+            navigate(from, {replace: true})
+            console.log(user)
+        })
+        .then(error =>{
+            console.log(error)
+        })
+    }
+
     return (
         <div>
             <div className='w-4/5 md:w-2/5 mx-auto my-12 p-8 shadow-xl rounded-lg bg-form'>
@@ -101,7 +115,7 @@ const Registration = () => {
                 </form>
                 <div className="divider my-5">OR</div>
                 <div>
-                    <button className='btn btn-block bg-slate-600 font-secularOne font-medium text-lg'><FaGoogle className='mx-5'></FaGoogle> Signin with Google</button>
+                    <button onClick={handleLoginWithGoogle} className='btn btn-block bg-slate-600 font-secularOne font-medium text-lg'><FaGoogle className='mx-5'></FaGoogle> Signin with Google</button>
                 </div>
             </div>
         </div>
