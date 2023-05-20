@@ -1,13 +1,62 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import './AddToy.css'
+import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2'
 
 const AddToys = () => {
+    const {user} = useContext(AuthContext)
+
+    const handleAddToy = event => {
+        event.preventDefault()
+        const form = event.target;
+        const picture = form.picture.value;
+        const toy = form.toy.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const quantity = form.quantity.value;
+        const subcategory = form.subcategory.value;
+        const price = form.price.value;
+        const ratings = form.ratings.value;
+        const messege = form.messege.value;
+
+        const addedToy = {
+            picture : picture,
+            name : toy,
+            sellerName : name,
+            sellerEmail : email,
+            price: price,
+            rating: ratings,
+            quantity: quantity,
+            subcategory : subcategory,
+            description: messege
+        }
+        console.log(addedToy)
+
+        fetch('http://localhost:5000/addToys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }, 
+            body: JSON.stringify(addedToy)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Yehh!!!',
+                    text: 'Toy added Successfully'
+                  })
+            }
+        })
+    }
     return (
         <div>
             <div className='w-4/5 md:w-3/5 mx-auto my-12 p-8 shadow-xl rounded-lg bg-form'>
                 <h1 className='my-5 text-xl md:text-4xl font-paytonOne font-semibold text-center text-slate-600'>Add Your Toy Here</h1>
-                <form >
+                <form onSubmit={handleAddToy}>
                     <div className='grid md:grid-cols-2 gap-5 my-4'>
                         <div className="form-control">
                             <label className="label font-secularOne">
@@ -27,13 +76,13 @@ const AddToys = () => {
                             <label className="label font-secularOne">
                                 <span className="label-text">Seller Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="seller name" className="input input-bordered" />
+                            <input type="text" name='name' defaultValue={user?.displayName} placeholder="seller name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label font-secularOne">
                                 <span className="label-text">Seller Email</span>
                             </label>
-                            <input type="text" name='email' placeholder="seller email" className="input input-bordered" />
+                            <input type="text" name='email' defaultValue={user?.email} placeholder="seller email" className="input input-bordered" />
                         </div>
                     </div>
                     <div className='grid md:grid-cols-2 gap-5 my-4'>
