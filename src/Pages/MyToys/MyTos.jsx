@@ -1,18 +1,21 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import MytoyTable from './MytoyTable/MytoyTable';
 import Swal from 'sweetalert2';
+import UpdateModal from './UpdateModal/UpdateModal';
 
 const MyTos = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [myToys, setMytoys] = useState([])
+    const [toyUpdate, setToyUpdate] = useState(null)
 
     const url = `http://localhost:5000/toys?email=${user?.email}`
     useEffect(() => {
         fetch(url)
-        .then(res => res.json())
-        .then(data => setMytoys(data))
+            .then(res => res.json())
+            .then(data => setMytoys(data))
     }, [url])
 
     const handleDelete = id => {
@@ -25,27 +28,27 @@ const MyTos = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/toy/${id}`, {
                     method: "DELETE"
                 })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if(data.deletedCount > 0){
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                          )
-                          const remaining = myToys?.filter(myToy => myToy._id !== id)
-                          setMytoys(remaining)
-                    }
-                })
-              
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            const remaining = myToys?.filter(myToy => myToy._id !== id)
+                            setMytoys(remaining)
+                        }
+                    })
+
             }
-          })
+        })
     }
     return (
         <>
@@ -69,12 +72,16 @@ const MyTos = () => {
                     </thead>
                     <tbody>
                         {
-                            myToys?.map(myToy => <MytoyTable key={myToy._id} myToy={myToy} handleDelete={handleDelete}></MytoyTable>)
+                            myToys?.map(myToy => <MytoyTable key={myToy._id} myToy={myToy} handleDelete={handleDelete} setToyUpdate={setToyUpdate}></MytoyTable>)
                         }
                     </tbody>
                 </table>
 
             </div>
+            {
+                toyUpdate && <UpdateModal toy={toyUpdate}></UpdateModal>
+            }
+
 
         </>
     );

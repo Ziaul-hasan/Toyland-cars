@@ -22,14 +22,14 @@ const Header = () => {
                     }
                 </div>
                 <Link to="/">
-                    <div className='flex items-center md:space-x-3 py-6 md:py-3 bg-white z-20 relative'>
+                    <div className='flex items-center md:space-x-3 py-6 md:py-3 bg-white relative'>
                         <img className='w-12 h-8 md:w-20 md:h-16' src={logo} alt="" />
                         <h2 className='text-xl md:text-4xl font-paytonOne font-bold text-lime-600'>Toyland <span className='text-2xl md:text-5xl text-yellow-400'>Cars</span></h2>
                     </div>
                 </Link>
             </div>
             <div>
-                <ul className={`md:inline-flex absolute md:static duration-300 z-10 ${open ? 'top-16 left-0 right-0 ps-10' : '-top-48 left-0 right-0 ps-10'} md:space-x-8 py-4 bg-white text-slate-600 font-paytonOne text-xl`}>
+                <ul className={`md:inline-flex absolute md:static z-10 ${open ? 'top-16 left-0 right-0 ps-10' : '-top-48 left-0 right-0 ps-10'} md:space-x-8 py-4 bg-white text-slate-600 font-paytonOne text-xl`}>
                     <li className='hover:text-lime-600'><NavLink title='home' className={({ isActive, isPending }) => isActive ? 'text-lime-600' : ''} to="/">Home</NavLink></li>
                     <li className='hover:text-lime-600'><NavLink title='alltoys' className={({ isActive, isPending }) => isActive ? 'text-lime-600' : ''} to="/alltoys">All Toys</NavLink></li>
                     {

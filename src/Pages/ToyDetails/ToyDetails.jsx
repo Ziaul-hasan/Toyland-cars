@@ -24,7 +24,7 @@ const ToyDetails = () => {
                         <p className='text-lg md:text-xl font-medium font-secularOne text-slate-600 my-3'>Subcategory: <span className='ms-3'>{subcategory}</span></p>
                         <p className='text-lg md:text-xl font-medium font-secularOne text-slate-600 my-3'>Price: <span className='text-red-600 ms-3'> ${price}</span></p>
                         <p className='text-lg md:text-xl font-medium font-secularOne text-slate-600 my-3'>Quantity: <span className='ms-3'>{quantity}</span></p>
-                        <p className='text-lg md:text-xl font-medium font-secularOne text-slate-600 my-3'>Description: <span className='ms-3 font-normal'>{description}</span></p>
+                        <p className='text-lg md:text-xl font-medium font-secularOne text-slate-600 my-3'>Description: <span className='ms-3 font-normal text-base md:text-lg'>{description}</span></p>
                         <div className='flex items-center space-x-2 my-3'>
                             <p className='text-base md:text-lg font-medium font-secularOne text-slate-600'>Ratings:</p>
                             <Rating

@@ -1,10 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const MytoyTable = ({ myToy, handleDelete }) => {
+const MytoyTable = ({ myToy, handleDelete, setToyUpdate }) => {
+
     const { _id, picture, name, sellerName, price, quantity, subcategory } = myToy || {}
+
     return (
         <tr>
             <td>
@@ -25,8 +27,13 @@ const MytoyTable = ({ myToy, handleDelete }) => {
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>{quantity}</td>
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>$ {price}</td>
             <th className='text-end space-y-3'>
-                <Link to={`/toydetails/${_id}`}><button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">details</button></Link>
-                <button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium block">update</button>
+                <Link className='block' to={`/toydetails/${_id}`}><button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">details</button></Link>
+                {/* <Link className='block' to={`/toyupdate/${_id}`}><button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">update</button></Link> */}
+                {/* The button to open modal */}
+                <label onClick={() => setToyUpdate(myToy)} htmlFor="my-modal-3" className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">update</label>
+
+                {/* Put this part before </body> tag */}
+                
             </th>
         </tr>
     );

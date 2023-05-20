@@ -9,11 +9,28 @@ const AllToys = () => {
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
+
+    const handleSearch = event => {
+        event.preventDefault()
+        const form = event.target;
+        const search = form.search.value
+        console.log(search)
+    }
     return (
         <>
             <div>
                 <h2>all toys will show here</h2>
             </div>
+            <form onSubmit={handleSearch}>
+                <div className='flex justify-center my-5 space-x-4'>
+                    <div className='form-control'>
+                        <input type="search" name="search" placeholder='search by name or category' className='input input-bordered rounded-3xl text-center font-secularOne' id="" />
+                    </div>
+                    <div className='form-control'>
+                        <input type="submit" value="Search" className='btn bg-lime-500 rounded-3xl border-0 font-secularOne inline' />
+                    </div>
+                </div>
+            </form>
             <div className='mx-5 md:mx-20 my-10 shadow-lg rounded-lg overflow-x-auto'>
                 <table className="table w-full table-normal z-0">
                     {/* head */}
