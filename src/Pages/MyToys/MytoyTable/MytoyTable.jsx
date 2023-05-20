@@ -2,12 +2,12 @@
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const MytoyTable = ({ myToy }) => {
+const MytoyTable = ({ myToy, handleDelete }) => {
     const { _id, picture, name, sellerName, price, quantity, subcategory } = myToy || {}
     return (
         <tr>
             <td>
-                <button className="p-2 border-2 border-lime-600 rounded-full">
+                <button onClick={() => handleDelete(_id)} className="p-2 border-2 border-lime-600 rounded-full">
                     <FaTrashAlt className='text-red-600 text-2xl'></FaTrashAlt>
                 </button>
             </td>

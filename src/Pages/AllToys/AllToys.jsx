@@ -14,8 +14,8 @@ const AllToys = () => {
             <div>
                 <h2>all toys will show here</h2>
             </div>
-            <div className='mx-5 md:mx-20 my-10 shadow-lg rounded-lg'>
-                <table className="table w-full">
+            <div className='mx-5 md:mx-20 my-10 shadow-lg rounded-lg overflow-x-auto'>
+                <table className="table w-full table-normal">
                     {/* head */}
                     <thead>
                         <tr>
