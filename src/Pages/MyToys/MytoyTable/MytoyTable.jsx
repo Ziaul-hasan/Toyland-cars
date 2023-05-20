@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MytoyTable = ({ myToy, handleDelete }) => {
     const { _id, picture, name, sellerName, price, quantity, subcategory } = myToy || {}
@@ -24,7 +25,7 @@ const MytoyTable = ({ myToy, handleDelete }) => {
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>{quantity}</td>
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>$ {price}</td>
             <th className='text-end space-y-3'>
-                <button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium block">details</button>
+                <Link to={`/toydetails/${_id}`}><button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">details</button></Link>
                 <button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium block">update</button>
             </th>
         </tr>

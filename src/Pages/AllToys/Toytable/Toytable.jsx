@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Toytable = ({ toy }) => {
     const { _id, picture, name, sellerName, price, quantity, subcategory } = toy || {}
@@ -18,7 +19,7 @@ const Toytable = ({ toy }) => {
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>{quantity}</td>
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>$ {price}</td>
             <th className='text-end'>
-                <button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">details</button>
+                <Link to={`/toydetails/${_id}`}><button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">details</button></Link>
             </th>
         </tr>
 

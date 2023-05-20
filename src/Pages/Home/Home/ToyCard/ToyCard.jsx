@@ -2,6 +2,7 @@
 import React from 'react';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 
 const ToyCard = ({ toy }) => {
     const { _id, picture, name, price, rating } = toy || {}
@@ -22,7 +23,7 @@ const ToyCard = ({ toy }) => {
             </div>
             
             <div>
-                <button className='btn btn-block bg-red-600 border-0 font-secularOne'>View Details</button>
+                <Link to={`/toydetails/${_id}`}><button className='btn btn-block bg-red-600 border-0 font-secularOne'>View Details</button></Link>
             </div>
         </div>
     );
