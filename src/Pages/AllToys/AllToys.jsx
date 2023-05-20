@@ -4,6 +4,7 @@ import Toytable from './Toytable/Toytable';
 
 const AllToys = () => {
     const [toys, setToys] = useState([])
+    const [searchText, setSearchText] =useState("")
     useEffect(() => {
         fetch('http://localhost:5000/toys')
             .then(res => res.json())
@@ -15,6 +16,10 @@ const AllToys = () => {
         const form = event.target;
         const search = form.search.value
         console.log(search)
+
+        fetch(`http://localhost:5000/searchToyByNameCategory/${searchText}`)
+        .then(res => res.json())
+        .then(data => setToys(data))
     }
     return (
         <>
@@ -24,7 +29,7 @@ const AllToys = () => {
             <form onSubmit={handleSearch}>
                 <div className='flex justify-center my-5 space-x-4'>
                     <div className='form-control'>
-                        <input type="search" name="search" placeholder='search by name or category' className='input input-bordered rounded-3xl text-center font-secularOne' id="" />
+                        <input onChange={(e) => setSearchText(e.target.value)} type="text" name="search" placeholder='search by name or category' className='input input-bordered rounded-3xl text-center font-secularOne' id="" />
                     </div>
                     <div className='form-control'>
                         <input type="submit" value="Search" className='btn bg-lime-500 rounded-3xl border-0 font-secularOne inline' />
