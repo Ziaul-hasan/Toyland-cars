@@ -12,7 +12,7 @@ const MytoyTable = ({ myToy, handleDelete }) => {
                 </button>
             </td>
             <td>
-                <div className='p-5'>
+                <div className='md:p-5'>
                     <img className='w-20 h-12 md:w-40 md:h-32 rounded-3xl' src={picture} alt="Avatar Tailwind CSS Component" />
                 </div>
             </td>
@@ -24,8 +24,8 @@ const MytoyTable = ({ myToy, handleDelete }) => {
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>{quantity}</td>
             <td className='text-slate-600 font-secularOne capitalize text-sm md:text-lg text-center'>$ {price}</td>
             <th className='text-end space-y-3'>
-                <button className="btn bg-lime-600 border-0 font-secularOne font-medium block">details</button>
-                <button className="btn bg-lime-600 border-0 font-secularOne font-medium block">update</button>
+                <button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium block">details</button>
+                <button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium block">update</button>
             </th>
         </tr>
     );
