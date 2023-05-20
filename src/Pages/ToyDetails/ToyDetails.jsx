@@ -9,8 +9,8 @@ const ToyDetails = () => {
     const { _id, picture, name, price, rating, sellerName, sellerEmail, description, quantity, subcategory } = singleToy || {}
     return (
         <div>
-            <div className='bg-img2'>
-                <h2>Details information of {name}</h2>
+            <div className='bg-img2 flex items-center justify-center ps-10'>
+                <h1 className='text-2xl md:text-8xl font-paytonOne text-base-300'>Toy Details <span className='text-yellow-400'>Information</span></h1>
             </div>
             <div>
                 <div className='flex flex-col md:flex-row justify-between items-center w-4/5 md:3/5 p-3 md:p-8 mx-auto md:space-x-10 my-5 md:my-12 rounded-lg shadow-xl border border-slate-400'>

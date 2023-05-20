@@ -3,3 +3,32 @@
     background-color: rgb(255, 255, 208);
     background-blend-mode: multiply;
 }
+
+.bg-img1 {
+    height: 400px;
+    background-image: url(/public/abs-2.jpg);
+    background-color: rgb(124, 115, 115);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+}
+.bg-img2 {
+    height: 400px;
+    background-image: url(/public/abs-3.jpg);
+    background-color: rgb(124, 115, 115);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+}
+.bg-img3 {
+    height: 420px;
+    background-image: url(/public/abs-4.jpg);
+    background-color: rgb(124, 115, 115);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+}
+

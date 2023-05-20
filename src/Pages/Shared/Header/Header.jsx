@@ -49,7 +49,7 @@ const Header = () => {
                 </div>
                 <div>
                     {
-                        user ? <button onClick={handleLogout} className='btn btn-xs md:btn-md bg-lime-500 border-0 font-paytonOne md:font-medium font-normal'>Log out</button> : <Link to='/login'><button className='btn btn-xs md:btn-md bg-lime-500 border-0 font-paytonOne md:font-medium font-normal'>Login</button></Link>
+                        user ? <Link to='/login'><button onClick={handleLogout} className='btn btn-xs md:btn-md bg-lime-500 border-0 font-paytonOne md:font-medium font-normal'>Log out</button></Link> : <Link to='/login'><button className='btn btn-xs md:btn-md bg-lime-500 border-0 font-paytonOne md:font-medium font-normal'>Login</button></Link>
                     }
                 </div>
             </div>

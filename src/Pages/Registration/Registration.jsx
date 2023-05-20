@@ -80,6 +80,9 @@ const Registration = () => {
 
     return (
         <div>
+            <div className='bg-img3 flex items-center justify-center ps-10'>
+                <h1 className='text-2xl md:text-8xl font-paytonOne text-base-300'>User <span className='text-yellow-400'>Registration</span></h1>
+            </div>
             <div className='w-4/5 md:w-2/5 mx-auto my-12 p-8 shadow-xl rounded-lg bg-form'>
                 <h1 className='my-5 text-xl md:text-4xl font-paytonOne font-semibold text-center text-slate-600'>Please Register !!</h1>
                 <form onSubmit={handleRegistration}>

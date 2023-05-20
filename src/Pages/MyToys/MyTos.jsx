@@ -11,7 +11,7 @@ const MyTos = () => {
     const [myToys, setMytoys] = useState([])
     const [toyUpdate, setToyUpdate] = useState(null)
 
-    const url = `http://localhost:5000/toys?email=${user?.email}`
+    const url = `https://assignment-toy-marketplace-server.vercel.app/toys?email=${user?.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -30,7 +30,7 @@ const MyTos = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toy/${id}`, {
+                fetch(`https://assignment-toy-marketplace-server.vercel.app/toy/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -52,8 +52,8 @@ const MyTos = () => {
     }
     return (
         <>
-            <div>
-                <h2>all toys will show here</h2>
+            <div className='bg-img2 flex items-center justify-center ps-10'>
+                <h1 className='text-2xl md:text-8xl font-paytonOne text-base-300'>My <span className='text-yellow-400'>Collection</span></h1>
             </div>
             <div className='mx-5 md:mx-20 my-10 shadow-lg rounded-lg overflow-x-auto'>
                 <table className="table w-full table-normal z-0">

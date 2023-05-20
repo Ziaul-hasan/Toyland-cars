@@ -5,7 +5,7 @@ import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2'
 
 const AddToys = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const handleAddToy = event => {
         event.preventDefault()
@@ -21,39 +21,42 @@ const AddToys = () => {
         const messege = form.messege.value;
 
         const addedToy = {
-            picture : picture,
-            name : toy,
-            sellerName : name,
-            sellerEmail : email,
+            picture: picture,
+            name: toy,
+            sellerName: name,
+            sellerEmail: email,
             price: price,
             rating: ratings,
             quantity: quantity,
-            subcategory : subcategory,
+            subcategory: subcategory,
             description: messege
         }
         console.log(addedToy)
 
-        fetch('http://localhost:5000/addToys', {
+        fetch('https://assignment-toy-marketplace-server.vercel.app/addToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
-            }, 
+            },
             body: JSON.stringify(addedToy)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.insertedId){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Yehh!!!',
-                    text: 'Toy added Successfully'
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Yehh!!!',
+                        text: 'Toy added Successfully'
+                    })
+                }
+            })
     }
     return (
         <div>
+            <div className='bg-img1 flex items-center justify-center ps-10'>
+                <h1 className='text-2xl md:text-8xl font-paytonOne text-base-300'>Add A <span className='text-yellow-400'>Toy</span></h1>
+            </div>
             <div className='w-4/5 md:w-3/5 mx-auto my-12 p-8 shadow-xl rounded-lg bg-form'>
                 <h1 className='my-5 text-xl md:text-4xl font-paytonOne font-semibold text-center text-slate-600'>Add Your Toy Here</h1>
                 <form onSubmit={handleAddToy}>

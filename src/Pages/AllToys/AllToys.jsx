@@ -4,9 +4,9 @@ import Toytable from './Toytable/Toytable';
 
 const AllToys = () => {
     const [toys, setToys] = useState([])
-    const [searchText, setSearchText] =useState("")
+    const [searchText, setSearchText] = useState("")
     useEffect(() => {
-        fetch('http://localhost:5000/toys')
+        fetch('https://assignment-toy-marketplace-server.vercel.app/toys')
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
@@ -17,14 +17,14 @@ const AllToys = () => {
         const search = form.search.value
         console.log(search)
 
-        fetch(`http://localhost:5000/searchToyByNameCategory/${searchText}`)
-        .then(res => res.json())
-        .then(data => setToys(data))
+        fetch(`https://assignment-toy-marketplace-server.vercel.app/searchToyByNameCategory/${searchText}`)
+            .then(res => res.json())
+            .then(data => setToys(data))
     }
     return (
         <>
-            <div>
-                <h2>all toys will show here</h2>
+            <div className='bg-img2 flex items-center justify-center ps-10'>
+                <h1 className='text-2xl md:text-8xl font-paytonOne text-base-300'>Our <span className='text-yellow-400'>Collection</span></h1>
             </div>
             <form onSubmit={handleSearch}>
                 <div className='flex justify-center my-5 space-x-4'>

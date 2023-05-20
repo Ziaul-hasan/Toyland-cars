@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import Blog from "../Pages/Blog/Blog";
 import MyTos from "../Pages/MyToys/MyTos";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,16 +25,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addtoys',
-                element: <AddToys></AddToys>
+                element: <PrivateRoute><AddToys></AddToys></PrivateRoute>
             },
             {
                 path: '/mytoys',
-                element: <MyTos></MyTos>
+                element: <PrivateRoute><MyTos></MyTos></PrivateRoute>
             },
             {
                 path: '/toydetails/:id',
-                element: <ToyDetails></ToyDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+                element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
+                loader: ({params}) => fetch(`https://assignment-toy-marketplace-server.vercel.app/toy/${params.id}`)
             },
             {
                 path: '/login',

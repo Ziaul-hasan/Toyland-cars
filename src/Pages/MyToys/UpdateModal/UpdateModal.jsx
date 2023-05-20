@@ -17,7 +17,7 @@ const UpdateModal = ({toy}) => {
         }
         console.log(updateInfo)
 
-        fetch(`http://localhost:5000/toy/${_id}`,{
+        fetch(`https://assignment-toy-marketplace-server.vercel.app/toy/${_id}`,{
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
