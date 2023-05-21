@@ -5,44 +5,139 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <div className='relative z-10 '>
+            <div className='relative '>
                 <div className='bg-img1 flex items-center justify-center ps-10'>
                     <h1 className='text-2xl md:text-8xl font-paytonOne text-base-300'>Questions & <span className='text-yellow-400'>Answer</span></h1>
                 </div>
                 <div className='my-10 w-5/6 md:w-4/5 mx-auto'>
                     <div className='md:my-10 my-2 md:mx-10 mx-4'>
                         <div className='my-8'>
-                            <h2 className='text-xl md:text-2xl font-semibold my-6 text-red-600'><span>Question:</span>  Tell us the differences between uncontrolled and controlled components</h2>
-                            <h2 className='text-base md:text-lg font-medium'><span className='text-xl md:text-2xl me-5'>Answer:</span> The main differences between controlled and uncontrolled components are:
-                                <li className='my-3 md:my-5'>Ownership and Management: Controlled components are typically owned and managed by the developer, while uncontrolled components are owned and managed by third-party providers.</li>
-                                <li className='my-3 md:my-5'>Customization and Configuration: Controlled components can be customized and configured to fit the specific needs of the application, while uncontrolled components cannot be customized to the same extent.</li>
-                                <li className='my-3 md:my-5'>Security: The security of controlled components can be managed by the developer, while uncontrolled components may have security vulnerabilities that are outside of the developer's control.</li>
-                                <li className='my-3 md:my-5'>Availability: Controlled components are typically more available, as they are hosted and managed by the developer or organization, while uncontrolled components may be subject to downtime or service outages that are beyond the developer's control.</li>
-                                <li className='my-3 md:my-5'>Support and Maintenance: Controlled components are typically easier to support and maintain, as the developer has direct control over them, while uncontrolled components may require third-party support and maintenance.</li>
+                            <h2 className='text-xl md:text-2xl font-secularOne font-semibold my-6 text-red-500'><span>Question:</span>  What is an access token and refresh token? How do they work and where should we store them on the client-side?</h2>
+                            <h2 className='text-base md:text-lg font-secularOne text-slate-600 font-medium'><span className='text-xl md:text-2xl me-5'>Answer:</span> An access token and refresh token are commonly used in authentication and authorization mechanisms, particularly in web applications and APIs. They serve different purposes and are used in different stages of the authentication process.
+                                <li className='my-3 md:my-5'><span className='text-xl md:text-2xl me-5'>Access Token:</span>An access token is a credential that is issued by an authentication server (such as OAuth 2.0) after a user successfully authenticates and authorizes an application. It represents the user's authorization to access specific resources or perform certain actions within the application or API. The access token typically has an expiration time and is used to make authenticated requests to protected endpoints.</li>
+                                <li className='my-3 md:my-5'><span className='text-xl md:text-2xl me-5'>Refresh Token:</span>A refresh token is also issued by the authentication server alongside the access token. Its purpose is to obtain a new access token without requiring the user to re-authenticate. Refresh tokens have a longer lifespan than access tokens and are used to request a new access token when the current one expires. They help improve security by reducing the lifespan of the access token, limiting the window of opportunity for potential misuse.</li>
+                                <h2 className='text-base md:text-lg font-medium'>The general flow for using access and refresh tokens is as follows:</h2>
+                                <ol className='ms-10'>
+                                    <li className='my-3 md:my-5 list-decimal'>User authentication</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Access token usage</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Access token expiration</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Refresh token usage</li>
+                                </ol>
+                                <h2><span className='text-xl md:text-2xl me-5'>Storing:</span>Store them in memory or a short-lived storage mechanism, such as a secure HTTP-only cookie or browser's localStorage, to be easily accessible for making authenticated requests. Avoid storing them in plain text or exposing them to JavaScript code. This helps protect against cross-site scripting (XSS) attacks and reduces the risk of token theft.</h2>
+
                             </h2>
                         </div>
                         <div className='my-8'>
-                            <h2 className='text-xl md:text-2xl font-semibold my-6 text-red-600'><span>Question:</span>  How to validate React props using PropTypes?</h2>
-                            <h2 className='text-base md:text-lg font-medium'><span className='text-xl md:text-2xl me-5'>Answer:</span> PropTypes ensure that the data passed to a component is of the expected type and format. Here's how you can validate React props using PropTypes:
-                                <li className='my-3 md:my-5'>First, import the PropTypes library in our component by adding this line at the top of your file: "import PropTypes from 'prop-types';"</li>
-                                <li className='my-3 md:my-5'>Define the expected props for our component using PropTypes.</li>
-                                <li className='my-3 md:my-5'>We can also specify that a prop is required by adding .isRequired to the end of the prop type.</li>
-                                <li className='my-3 md:my-5'>We can also define custom validators for more complex data types.</li>
+                            <h2 className='text-xl md:text-2xl font-semibold my-6 font-secularOne text-red-500'><span>Question:</span>  Compare SQL and NoSQL databases?</h2>
+                            <h2 className='text-base md:text-lg font-medium font-secularOne text-slate-600'><span className='text-xl md:text-2xl me-5'>Answer:</span> Below is the main difference between NoSQL and SQL:
+                            </h2>
+                            <div className="overflow-x-auto my-6">
+                                <table className="table w-full table-compact">
+                                    {/* head */}
+                                    <thead>
+                                        <tr>
+                                            <th className='text-base md:text-lg font-secularOne text-slate-600'>Sl</th>
+                                            <th className='text-base md:text-lg font-secularOne text-slate-600'>Parameter</th>
+                                            <th className='text-base md:text-lg font-secularOne text-slate-600'>SQL</th>
+                                            <th className='text-base md:text-lg font-secularOne text-slate-600'>NOSQL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className='text-base font-secularOne'>
+                                        {/* row 1 */}
+                                        <tr>
+                                            <th>1</th>
+                                            <td>Definition</td>
+                                            <td>SQL databases are primarily called RDBMS or Relational Databases</td>
+                                            <td>NoSQL databases are primarily called as Non-relational or distributed database</td>
+                                        </tr>
+                                        {/* row 2 */}
+                                        <tr>
+                                            <th>2</th>
+                                            <td>Design for</td>
+                                            <td>Traditional RDBMS uses SQL syntax and queries to analyze and get the data for further insights. They are used for OLAP systems.</td>
+                                            <td>NoSQL database system consists of various kind of database technologies. These databases were developed in response to the demands presented for the development of the modern application.</td>
+                                        </tr>
+                                        {/* row 3 */}
+                                        <tr>
+                                            <th>3</th>
+                                            <td>Query Language</td>
+                                            <td>Structured query language (SQL)	</td>
+                                            <td>No declarative query language</td>
+                                        </tr>
+                                        {/* row 4 */}
+                                        <tr>
+                                            <th>4</th>
+                                            <td>Type</td>
+                                            <td>SQL databases are table based databases</td>
+                                            <td>NoSQL databases can be document based, key-value pairs, graph databases</td>
+                                        </tr>
+                                        {/* row 5 */}
+                                        <tr>
+                                            <th>5</th>
+                                            <td>Ability to scale</td>
+                                            <td>SQL databases are vertically scalable</td>
+                                            <td>NoSQL databases are horizontally scalable</td>
+                                        </tr>
+                                        {/* row 6 */}
+                                        <tr>
+                                            <th>6</th>
+                                            <td>Examples</td>
+                                            <td>Oracle, Postgres, and MS-SQL.</td>
+                                            <td>MongoDB, Redis, Neo4j, Cassandra, Hbase.</td>
+                                        </tr>
+                                        {/* row 7 */}
+                                        <tr>
+                                            <th>7</th>
+                                            <td>Best Used for</td>
+                                            <td>RDBMS database is the right option for solving ACID problems.</td>
+                                            <td>NoSQL is a best used for solving data availability problems</td>
+                                        </tr>
+                                        {/* row 8 */}
+                                        <tr>
+                                            <th>8</th>
+                                            <td>Top Companies Using</td>
+                                            <td>Hootsuite, CircleCI, Gauges</td>
+                                            <td>Airbnb, Uber, Kickstarter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div className='my-8'>
+                            <h2 className='text-xl md:text-2xl font-semibold my-6 font-secularOne text-red-500'><span>Question:</span>  What is express js? What is Nest JS?</h2>
+                            <h2 className='text-base md:text-lg font-medium font-secularOne text-slate-600'><span className='text-xl md:text-2xl me-5'>Answer:</span> NestJS provides a more structured and opinionated approach, which can make it easier to build complex APIs with proper separation of concerns. Express, on the other hand, is more lightweight and flexible, which makes it a popular choice for simple or small-scale APIs. </h2>
+                            <h2 className='text-base md:text-lg font-secularOne text-slate-600 font-medium'><span className='text-xl md:text-2xl me-5'>Express.js:</span> Express.js is a popular, fast, and minimalist web application framework for Node.js. It provides a simple and flexible set of features for building web applications and APIs. Express.js is known for its unopinionated approach, allowing developers to have more control over the structure and organization of their code. </h2>
+                            <h2 className='text-base md:text-lg font-secularOne text-slate-600 font-medium'>Key features of Express.js include:
+                                <ol className='ms-10'>
+                                    <li className='my-3 md:my-5 list-decimal'>Routing</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Middleware</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Template Engines</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Integration</li>
+                                </ol>
+                            </h2>
+                            <h2 className='text-base md:text-lg font-secularOne text-slate-600 font-medium'><span className='text-xl md:text-2xl me-5'>NestJS:</span> NestJS is a progressive, opinionated, and highly extensible framework for building scalable server-side applications using Node.js. It is inspired by Angular and takes advantage of TypeScript's features to provide a complete development experience. </h2>
+                            <h2 className='text-base md:text-lg font-secularOne text-slate-500 font-medium'>Key features of Express.js include:
+                                <ol className='ms-10'>
+                                    <li className='my-3 md:my-5 list-decimal'>Architecture</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Dependency Injection</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Middleware</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Decorators</li>
+                                    <li className='my-3 md:my-5 list-decimal'>Support for TypeScript</li>
+                                </ol>
                             </h2>
                         </div>
                         <div className='my-8'>
-                            <h2 className='text-xl md:text-2xl font-semibold my-6 text-red-600'><span>Question:</span>  Tell us the difference between nodejs and express js.</h2>
-                            <h2 className='text-base md:text-lg font-medium'><span className='text-xl md:text-2xl me-5'>Answer:</span> Node.js is an open source and cross-platform runtime environment for executing JavaScript code outside of a browser. You need to remember that NodeJS is not a framework and it’s not a programming language. <br /><br />
-                                On the other hand, Express is a small framework that sits on top of Node.js’s web server functionality to simplify its APIs and add helpful new features. It makes it easier to organize your application’s functionality with middle ware and routing.
-                                <br /><br /> Node.js is a platform for building the i/o applications which are server-side event-driven and made using JavaScript. <br /><br /> Express.js is a framework based on Node.js which is used for building web-application using approaches and principles of Node.js event-driven architecture. </h2>
-                        </div>
-                        <div className='my-8'>
-                            <h2 className='text-xl md:text-2xl font-semibold my-6 text-red-600'><span>Question:</span>  What is a custom hook, and why will you create a custom hook?</h2>
-                            <h2 className='text-base md:text-lg font-medium'><span className='text-xl md:text-2xl me-5'>Answer:</span> A custom Hook is a JavaScript function whose name starts with 'use' and that may call other Hooks.” This naming convention is suggested in order to follow the pattern that's already in place
-                                <br /><br /> There are several advantages to using Custom Hooks:
-                                <li className='my-3 md:my-5'>Reusability — we can use the same hook again and again, without the need to write it twice.</li>
-                                <li className='my-3 md:my-5'>Clean Code — extracting all the component logic into a hook will provide a cleaner codebase.</li>
-                                <li className='my-3 md:my-5'>Maintainability — easier to maintain.</li>
+                            <h2 className='text-xl md:text-2xl font-semibold font-secularOne my-6 text-red-500'><span>Question:</span>  What is MongoDB aggregate and how does it work?</h2>
+                            <h2 className='text-base md:text-lg font-secularOne font-medium text-slate-600'><span className='text-xl md:text-2xl me-5'>Answer:</span> In MongoDB, the aggregate method is used to perform advanced data aggregation operations on collections. It allows you to process and transform data, perform calculations, apply filtering and grouping, and perform other complex operations to derive meaningful results from given data.
+                                <br /><br /> Here are some commonly used pipeline stages in the aggregate method:
+                                <ol className='ms-10'>
+                                    <li className='list-decimal my-3 md:my-5'>$match: Filters the documents based on specified criteria. It works similar to the regular query operations, allowing you to include or exclude documents based on specific conditions.</li>
+                                    <li className='list-decimal my-3 md:my-5'>$project: Reshapes the documents, allowing you to specify which fields to include or exclude, create computed fields, rename fields, or apply expressions to modify the document structure.</li>
+                                    <li className='list-decimal my-3 md:my-5'>$group: Groups documents together based on a specified key or set of keys. It allows you to perform calculations on grouped data, such as summing, averaging, counting, and finding maximum or minimum values.</li>
+                                    <li className='list-decimal my-3 md:my-5'>$sort: Sorts the documents based on one or more fields in ascending or descending order.</li>
+                                    <li className='list-decimal my-3 md:my-5'>$limit and $skip: Limits the number of documents returned in the result set and skips a specified number of documents.</li>
+                                    <li className='list-decimal my-3 md:my-5'>$unwind: Deconstructs an array field, creating multiple documents for each element in the array. This is useful when you want to perform operations on individual array elements.</li>
+                                </ol>
                             </h2>
                         </div>
                     </div>
