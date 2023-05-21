@@ -46,6 +46,7 @@ const AllToys = () => {
                     {/* head */}
                     <thead>
                         <tr>
+                            <th className='text-base md:text-lg font-paytonOne capitalize font-medium text-slate-600'>SL No.</th>
                             <th className='text-base md:text-lg font-paytonOne capitalize font-medium text-slate-600'>Picture</th>
                             <th className='text-base md:text-lg font-paytonOne capitalize font-medium text-slate-600'>Name</th>
                             <th className='text-base md:text-lg font-paytonOne capitalize font-medium text-slate-600'>Sub-category</th>
@@ -60,7 +61,7 @@ const AllToys = () => {
                             :
                             <tbody>
                                 {
-                                    toys?.map(toy => <Toytable key={toy._id} toy={toy}></Toytable>)
+                                    toys?.map((toy, index)=> <Toytable key={toy._id} toy={toy} index={index}></Toytable>)
                                 }
                             </tbody>
                     }

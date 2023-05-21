@@ -2,10 +2,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Toytable = ({ toy }) => {
+const Toytable = ({ toy, index }) => {
     const { _id, picture, name, sellerName, price, quantity, subcategory } = toy || {}
     return (
         <tr>
+            <td>{index+1}</td>
             <td>
                 <div className=' md:p-5'>
                     <img className='w-20 h-12 md:w-40 md:h-32 rounded-3xl' src={picture} alt="Avatar Tailwind CSS Component" />
