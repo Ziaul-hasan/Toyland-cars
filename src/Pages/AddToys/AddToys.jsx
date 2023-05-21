@@ -93,7 +93,7 @@ const AddToys = () => {
                             <label className="label font-secularOne">
                                 <span className="label-text">Available Quantity</span>
                             </label>
-                            <input type="text" name='quantity' placeholder="email" className="input input-bordered" />
+                            <input type="number" name='quantity' placeholder="quantity" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label font-secularOne">
@@ -113,7 +113,7 @@ const AddToys = () => {
                             <label className="label font-secularOne">
                                 <span className="label-text">Price of Toy</span>
                             </label>
-                            <input type="text" name='price' placeholder="write price" className="input input-bordered" />
+                            <input type="number" name='price' placeholder="write price" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label font-secularOne">
