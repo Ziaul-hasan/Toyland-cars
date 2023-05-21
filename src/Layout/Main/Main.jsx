@@ -1,12 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import Header from '../../Pages/Shared/Header/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation, useNavigation } from 'react-router-dom';
 import Footer from '../../Pages/Shared/Footer/Footer';
 import { AuthContext } from '../../Providers/AuthProviders';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 const Main = () => {
     const {loading} = useContext(AuthContext)
+    const pageTitle = useLocation()
+    useEffect(() => {
+        if(pageTitle.pathname === '/'){
+          document.title = 'Toylandcar-home'
+        }
+        else{
+          document.title = `Toylandcar ${pageTitle.pathname.replace('/', '-')}`
+        }
+        if(pageTitle.state){
+          document.title = pageTitle.state
+        }
+      }, [pageTitle.pathname])
+      
     return (
         <div>
             <Header></Header>
