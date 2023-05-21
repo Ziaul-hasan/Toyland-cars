@@ -5,10 +5,15 @@ import Toytable from './Toytable/Toytable';
 const AllToys = () => {
     const [toys, setToys] = useState([])
     const [searchText, setSearchText] = useState("")
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
+        setLoading(true)
         fetch('https://assignment-toy-marketplace-server.vercel.app/toys')
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => {
+                setLoading(false)
+                setToys(data)
+            })
     }, [])
 
     const handleSearch = event => {
@@ -50,11 +55,15 @@ const AllToys = () => {
                             <th className='text-base md:text-lg font-paytonOne capitalize font-medium text-slate-600'>Show more</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {
-                            toys?.map(toy => <Toytable key={toy._id} toy={toy}></Toytable>)
-                        }
-                    </tbody>
+                    {
+                        loading ? <div className='flex justify-center items-center text-center h-[400px]'><h2 className='text-3xl font-normal'>Pr</h2><div className='w-6 h-6 border-4 md:w-10 md:h-10 md:border-8 border-dashed rounded-full border-blue-500 animate-spin'></div><h2 className='text-3xl font-normal'>cessing</h2></div>
+                            :
+                            <tbody>
+                                {
+                                    toys?.map(toy => <Toytable key={toy._id} toy={toy}></Toytable>)
+                                }
+                            </tbody>
+                    }
                 </table>
 
             </div>
