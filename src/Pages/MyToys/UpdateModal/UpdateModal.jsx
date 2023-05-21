@@ -2,7 +2,7 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 
-const UpdateModal = ({toy, loading}) => {
+const UpdateModal = ({toy, loading, update, setUpdate}) => {
     const {_id, price, quantity, description} = toy || {}
     console.log(_id)
     const handleUpdate = event => {
@@ -28,6 +28,7 @@ const UpdateModal = ({toy, loading}) => {
         .then(data => {
             console.log(data)
             if(data.modifiedCount > 0){
+                setUpdate(!update)
                 Swal.fire({
                     icon: 'success',
                     title: 'Yehh!!!',

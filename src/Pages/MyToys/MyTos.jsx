@@ -85,7 +85,7 @@ const MyTos = () => {
 
             </div>
             {
-                toyUpdate && <UpdateModal toy={toyUpdate} loading={loading}></UpdateModal> 
+                toyUpdate && <UpdateModal toy={toyUpdate} loading={loading} setUpdate={setUpdate} update={update}></UpdateModal> 
             }
 
 
