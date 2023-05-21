@@ -12,6 +12,7 @@ const MyTos = () => {
     const [toyUpdate, setToyUpdate] = useState(null)
     const [loading, setLoading] = useState(false)
     const [update, setUpdate] = useState(false)
+    const [open, setOpen] = useState(false);
 
     const url = `https://assignment-toy-marketplace-server.vercel.app/toys?email=${user?.email}`
     useEffect(() => {
@@ -56,12 +57,44 @@ const MyTos = () => {
             }
         })
     }
+
+
+    const handleAscending = (p1, p2) => {
+        setLoading(true)
+        fetch(`https://assignment-toy-marketplace-server.vercel.app/toys?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                const result = data.sort((a, b) => a.price - b.price)
+                setLoading(false)
+                setMytoys(result)
+                setOpen(!open)
+            })
+    }
+
+    const handleDescending = (p1, p2) => {
+        setLoading(true)
+        fetch(`https://assignment-toy-marketplace-server.vercel.app/toys?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                const result = data.sort((a, b) => b.price - a.price)
+                setLoading(false)
+                setMytoys(result)
+                setOpen(!open)
+            })
+    }
     return (
         <>
             <div className='bg-img2 flex items-center justify-center ps-10'>
                 <h1 className='text-2xl md:text-8xl font-paytonOne text-base-300'>My <span className='text-yellow-400'>Collection</span></h1>
             </div>
-            <div className='mx-5 md:mx-20 my-10 shadow-lg rounded-lg overflow-x-auto'>
+
+                <div className='flex items-center justify-end my-4 me-10 md:me-20 space-x-3'>
+                    <h2 className='text-lg md:text-xl font-secularOne font-semibold text-slate-500'>Sort by Price</h2>
+                    {
+                        (open === true) ? <button onClick={handleAscending} className='btn bg-lime-600 border-0'>Ascending</button> : <button onClick={handleDescending} className='btn bg-lime-600 border-0'>Descending</button>
+                    }
+                </div>
+            <div className='mx-5 p-4 md:mx-20 mt-5 mb-10 shadow-lg rounded-lg overflow-x-auto'>
                 <table className="table w-full table-normal z-0">
                     {/* head */}
                     <thead>
@@ -77,13 +110,13 @@ const MyTos = () => {
                         </tr>
                     </thead>
                     {
-                        loading ? <div className='flex justify-center items-center h-[500px]'><h2 className='text-3xl font-normal'>Pr</h2><div className='w-6 h-6 border-4 md:w-10 md:h-10 md:border-8 border-dashed rounded-full border-blue-500 animate-spin'></div><h2 className='text-3xl font-normal'>cessing</h2></div> 
-                        :
-                        <tbody>
-                        {
-                            myToys?.map(myToy => <MytoyTable key={myToy._id} myToy={myToy} handleDelete={handleDelete} setToyUpdate={setToyUpdate} setUpdate={setUpdate} update={update}></MytoyTable>)
-                        }
-                    </tbody>
+                        loading ? <div className='flex justify-center items-center h-[500px]'><h2 className='text-3xl font-normal'>Pr</h2><div className='w-6 h-6 border-4 md:w-10 md:h-10 md:border-8 border-dashed rounded-full border-blue-500 animate-spin'></div><h2 className='text-3xl font-normal'>cessing</h2></div>
+                            :
+                            <tbody>
+                                {
+                                    myToys?.map(myToy => <MytoyTable key={myToy._id} myToy={myToy} handleDelete={handleDelete} setToyUpdate={setToyUpdate} setUpdate={setUpdate} update={update}></MytoyTable>)
+                                }
+                            </tbody>
                     }
                 </table>
 
