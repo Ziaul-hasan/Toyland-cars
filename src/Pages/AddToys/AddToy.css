@@ -32,3 +32,15 @@
 
 }
 
+@media screen and (max-width: 640px) {
+    .bg-img1 {
+        height: 250px;
+    }
+    .bg-img2 {
+        height: 250px;
+    }
+    .bg-img3{
+        height: 250px;
+    }
+}
+

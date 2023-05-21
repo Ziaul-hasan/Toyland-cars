@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log('environment variable', import.meta.env.VITE_APIKEY)
 const firebaseConfig = {
-  apiKey: "AIzaSyA0hH5xI3sv1xYQ3YYY6P2QetqTTmGMeyA",
-  authDomain: "toylandcars.firebaseapp.com",
-  projectId: "toylandcars",
-  storageBucket: "toylandcars.appspot.com",
-  messagingSenderId: "498522976250",
-  appId: "1:498522976250:web:6f82c4726a2a732fb8be43"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

@@ -10,13 +10,19 @@ const MyTos = () => {
     const { user } = useContext(AuthContext)
     const [myToys, setMytoys] = useState([])
     const [toyUpdate, setToyUpdate] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [update, setUpdate] = useState(false)
 
     const url = `https://assignment-toy-marketplace-server.vercel.app/toys?email=${user?.email}`
     useEffect(() => {
+        setLoading(true)
         fetch(url)
             .then(res => res.json())
-            .then(data => setMytoys(data))
-    }, [url])
+            .then(data => {
+                setLoading(false)
+                setMytoys(data)
+            })
+    }, [url, update])
 
     const handleDelete = id => {
         console.log('hit delete button', id)
@@ -72,14 +78,14 @@ const MyTos = () => {
                     </thead>
                     <tbody>
                         {
-                            myToys?.map(myToy => <MytoyTable key={myToy._id} myToy={myToy} handleDelete={handleDelete} setToyUpdate={setToyUpdate}></MytoyTable>)
+                            myToys?.map(myToy => <MytoyTable key={myToy._id} myToy={myToy} handleDelete={handleDelete} setToyUpdate={setToyUpdate} setUpdate={setUpdate} update={update}></MytoyTable>)
                         }
                     </tbody>
                 </table>
 
             </div>
             {
-                toyUpdate && <UpdateModal toy={toyUpdate}></UpdateModal>
+                toyUpdate && <UpdateModal toy={toyUpdate} loading={loading}></UpdateModal> 
             }
 
 

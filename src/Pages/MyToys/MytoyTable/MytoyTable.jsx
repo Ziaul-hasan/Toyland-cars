@@ -3,7 +3,7 @@
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const MytoyTable = ({ myToy, handleDelete, setToyUpdate }) => {
+const MytoyTable = ({ myToy, handleDelete, setToyUpdate, setUpdate, update }) => {
 
     const { _id, picture, name, sellerName, price, quantity, subcategory } = myToy || {}
 
@@ -30,7 +30,8 @@ const MytoyTable = ({ myToy, handleDelete, setToyUpdate }) => {
                 <Link className='block' to={`/toydetails/${_id}`}><button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">details</button></Link>
                 {/* <Link className='block' to={`/toyupdate/${_id}`}><button className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">update</button></Link> */}
                 {/* The button to open modal */}
-                <label onClick={() => setToyUpdate(myToy)} htmlFor="my-modal-3" className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">update</label>
+                <label onClick={() => {setToyUpdate(myToy)
+                setUpdate(!update)}} htmlFor="my-modal-3" className="btn btn-sm md:btn-md bg-lime-600 border-0 font-secularOne font-medium">update</label>
 
                 {/* Put this part before </body> tag */}
                 

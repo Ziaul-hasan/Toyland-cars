@@ -2,18 +2,18 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 
-const UpdateModal = ({toy}) => {
+const UpdateModal = ({toy, loading}) => {
     const {_id, price, quantity, description} = toy || {}
-
+    console.log(_id)
     const handleUpdate = event => {
         event.preventDefault()
         const form = event.target;
         const price = form.price.value;
         const quantity = form.quantity.value;
-        const messege = form.messege.value
+        const description = form.description.value
 
         const updateInfo = {
-            price, quantity, messege
+            price, quantity, description
         }
         console.log(updateInfo)
 
@@ -41,10 +41,11 @@ const UpdateModal = ({toy}) => {
         <div>
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
             <div className="modal">
-                <div className="modal-box w-3/5 max-w-2xl relative">
+                <div className="modal-box w-4/5 md:w-3/5 max-w-2xl relative">
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='my-5 text-xl md:text-3xl font-paytonOne font-semibold text-center text-slate-600'>Update Toy information</h1>
-                    <form onSubmit={handleUpdate}>
+                    {
+                        loading ? '' : <form onSubmit={handleUpdate}>
                         <div className="form-control">
                             <label className="label font-secularOne">
                                 <span className="label-text">Price of Toy</span>
@@ -61,12 +62,13 @@ const UpdateModal = ({toy}) => {
                             <label className="label font-secularOne">
                                 <span className="label-text">Description</span>
                             </label>
-                            <textarea name="messege" id="" cols="30" rows="3" defaultValue={description} placeholder='Describe about toy' className='border border-slate-300 p-4 rounded-md'></textarea>
+                            <textarea name="description" id="" cols="30" rows="3" defaultValue={description} placeholder='Describe about toy' className='border border-slate-300 p-4 rounded-md'></textarea>
                         </div>
                         <div className="form-control mt-6">
                             <input type="submit" value="Update Information" className="btn bg-lime-600 border-0 font-secularOne" />
                         </div>
                     </form>
+                    }
                 </div>
             </div>
         </div>
