@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
@@ -12,10 +12,18 @@ import man3 from '../../../assets/man-3.jpg'
 import woman1 from '../../../assets/woman-1.jpg'
 import woman2 from '../../../assets/women-2.jpg'
 import './Testimonial.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
 
 const Testimonial = () => {
+
+    useEffect(()=> {
+        AOS.init({duration: 1000});
+    }, [])
+
     return (
-        <div className='md:mt-10 py-5 bgslide'>
+        <div className='md:mt-10 py-5 bgslide' data-aos="zoom-in">
             <h1 className='text-2xl md:text-5xl font-semibold md:font-bold font-paytonOne text-slate-600 text-center mt-10'>What People Say About ToylandCars </h1>
             <Swiper
                 slidesPerView={1}
