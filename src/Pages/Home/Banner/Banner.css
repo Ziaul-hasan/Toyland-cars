@@ -7,10 +7,23 @@
     line-height: 1.5em;
 }
 
+.textSwiper{
+    height: 400px;
+    width: 100%;
+    background-image: url(/public/abs-3.jpg);
+    background-color: rgb(160, 150, 10);
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 @media screen and (max-width: 640px) {
     .mySwiper img{
         height: 450px;
         width: 100%;
+    }
+    .textSwiper{
+        height: 300px;
     }
 }
