@@ -6,3 +6,14 @@
     border-radius: 8px;
     height: 400px;
 }
+
+@media screen and (max-width: 640px) {
+    .aboutSwiper{
+        height: 240px;
+        width: 340px;
+    }
+    .aboutSwiper img{
+        width: 100%;
+        height: 240px;
+    }
+}

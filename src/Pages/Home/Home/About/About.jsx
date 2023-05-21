@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 const About = () => {
     return (
-        <div className='grid md:grid-cols-2 gap-10 w-4/5 md:3/5 mx-auto mt-20 mb-10 items-center'>
+        <div className='grid md:grid-cols-2 gap-10 w-5/6 md:3/5 mx-auto mt-20 mb-10 items-center'>
             <div>
                 <Swiper
                     spaceBetween={30}

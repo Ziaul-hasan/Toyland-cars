@@ -1,0 +1,16 @@
+.testimonialSwiper{
+    height: 520px;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+.bgslide{
+    background-image: url(/public/geometry2.png);
+}
+
+@media screen and (max-width: 640px) {
+    .testimonialSwiper{
+        width: 100%;
+        height: 480px;
+    }
+}

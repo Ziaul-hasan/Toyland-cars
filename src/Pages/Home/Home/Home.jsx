@@ -7,6 +7,7 @@ import TabComponent from './TabComponent/TabComponent';
 import { Link } from 'react-router-dom';
 import Gallery from '../Gallery/Gallery';
 import Texslider from '../Textslider/Texslider';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
             </div>
             <Texslider></Texslider>
             <Gallery></Gallery>
+            <Testimonial></Testimonial>
         </div>
     );
 };
