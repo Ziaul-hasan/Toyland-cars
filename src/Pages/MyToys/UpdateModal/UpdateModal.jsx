@@ -46,7 +46,7 @@ const UpdateModal = ({toy, loading, update, setUpdate}) => {
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='my-5 text-xl md:text-3xl font-paytonOne font-semibold text-center text-slate-600'>Update Toy information</h1>
                     {
-                        loading ? '' : <form onSubmit={handleUpdate}>
+                        loading ?  <div className='flex justify-center items-center h-[calc(100vh-60px)]'><h2 className='text-3xl font-normal'>Pr</h2><div className='w-6 h-6 border-4 md:w-10 md:h-10 md:border-8 border-dashed rounded-full border-blue-500 animate-spin'></div><h2 className='text-3xl font-normal'>cessing</h2></div> : <form onSubmit={handleUpdate}>
                         <div className="form-control">
                             <label className="label font-secularOne">
                                 <span className="label-text">Price of Toy</span>
