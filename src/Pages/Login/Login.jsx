@@ -81,7 +81,7 @@ const Login = () => {
                 </form>
                 <div className="divider my-5">OR</div>
                 <div>
-                    <button onClick={handleLoginWithGoogle} className='btn btn-block bg-slate-600 font-secularOne font-medium text-lg'><FaGoogle className='mx-5'></FaGoogle> Signin with Google</button>
+                    <button onClick={handleLoginWithGoogle} className='btn btn-block bg-slate-600 font-secularOne font-medium text-base md:text-lg'><FaGoogle className='mx-5'></FaGoogle> Signin with Google</button>
                 </div>
             </div>
         </div>
