@@ -20,7 +20,7 @@ const Gallery = () => {
 
     return (
         <div className='my-5 md:my-20 w-4/5 mx-auto'>
-            <h1 className='text-2xl md:text-5xl font-semibold md:font-bold font-paytonOne text-slate-600 text-center my-10'>Gallery Of Our toy Collection </h1>
+            <h1 className='text-2xl md:text-5xl font-semibold md:font-bold font-paytonOne text-slate-600 text-center my-10'>Gallery Of Our Collection </h1>
             <div className='grid grid-cols-2 md:grid-cols-3 gap-6'>
                 <div className='p-3 shadow-lg rounded-xl' data-aos="zoom-out">
                     <img src={img1} alt="" />
